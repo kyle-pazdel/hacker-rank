@@ -13,36 +13,50 @@
 # subtract primary from secondary diagonal
 # add conditional to make number absolute by .abs method
 
+# NEW SOLUTION!!
+# Iterate over all values based on n increasing index by one for row and one for column for primary sum
+# Iterate over all values based on n increasing index by one for row and decreasing by one for column for secondary sum
+# subtract primary sum from secondary sum
+# use .abs on the result and print
+
 n = 3
 arr = [[11, 2, 4],
        [4, 5, 6],
        [10, 8, -12]]
 
-def diagonal_difference(arr)
-  f = 0
-  m_int = arr.length / 2
-  m_float = (arr.length.to_f / 2).ceil
-  l = arr.length - 1
+arr2 = [[1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1]]
 
-  if arr.length < 5
-    m = arr[m_int][m_int]
-  else
-    m = arr[m_float][m_float]
+arr3 = [[6, 6, 7, -10, 9, -3, 8, 9, -1],
+        [9, 7, -10, 6, 4, 1, 6, 1, 1],
+        [-1, -2, 4, -6, 1, -4, -6, 3, 9],
+        [-8, 7, 6, -1, -6, -6, 6, -7, 2],
+        [-10, -4, 9, 1, -7, 8, -5, 3, -5],
+        [-8, -3, -4, 2, -3, 7, -5, 1, -5],
+        [-2, -7, -4, 8, 3, -1, 8, 2, 3],
+        [-3, 4, 6, -7, -7, -8, -3, 9, -6],
+        [-2, 0, 5, 4, 4, 4, -3, 3, 0]]
+
+def diagonal_difference(arr)
+  i = 0
+  prim_sum = 0
+  while i < arr.length
+    prim_sum += arr[i][i]
+    i += 1
   end
-  primary_sum = arr[f][f] + m + arr[l][l]
-  secondary_sum = arr[f][l] + m + arr[l][f]
-  absolute_sum = (primary_sum - secondary_sum).abs
-  p absolute_sum
+  i = 0
+  i2 = arr.length - 1
+  sec_sum = 0
+  while i < arr.length
+    sec_sum += arr[i][i2]
+    i += 1
+    i2 -= 1
+  end
+  absolute_difference = (prim_sum - sec_sum).abs
+  p absolute_difference
 end
 
-diagonal_difference(arr)
-
-# arr2 = [[1, 2, 3, 4, 5],
-#         [1, 2, 3, 4, 5],
-#         [1, 2, 3, 4, 5],
-#         [1, 2, 3, 4, 5],
-#         [1, 2, 3, 4, 5]]
-
-# p (7.to_f / 2).ceil
-# p (arr.length.to_f / 2).ceil
-# p m
+diagonal_difference(arr2)
