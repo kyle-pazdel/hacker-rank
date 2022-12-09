@@ -9,7 +9,6 @@
 
 # staircase = "     #    ##   ###  #### ###########"
 
-arr = []
 # arr << " " * s
 # arr << "#" * n
 # p arr
@@ -17,19 +16,28 @@ arr = []
 # arr << "#" * (n - 1)
 # p arr
 
+arr = []
 n = 6
 s = 1
-# while s <= 6
-#   p " " * n + "#" * s
-#   s += 1
-#   n -= 1
-# end
-while s <= 6
-  arr << [" "] * (n - 1) + ["#"] * s
+while s <= n
+  arr << " " * (n - 1) + "#" * s
   s += 1
   n -= 1
 end
-p arr
+i = 0
+while i < 6
+  puts arr[i]
+  i += 1
+end
+
+# while s <= 6
+#   arr << [" "] * (n - 1) + ["#"] * s
+#   s += 1
+#   n -= 1
+# end
+# puts arr[5]
+# print arr[4]
+# p arr
 
 # while s <= 6
 #   str = " " * n + "#" * s
@@ -39,9 +47,3 @@ p arr
 #   n -= 1
 # end
 # p arr
-
-i = 6
-while i > 0
-  p arr[i][i]
-  i -= 1
-end
