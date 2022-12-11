@@ -36,62 +36,93 @@
 
 arr = [1, 2, 3, 4, 5]
 
-sum = arr[0] + arr[1] + arr[2] + arr[3]
-puts sum
-sum2 = arr[1] + arr[2] + arr[3] + arr[4]
-puts sum2
-puts "#{sum} #{sum2}"
-max_sum = 0
-min_sum = 0
+# sum = arr[0] + arr[1] + arr[2] + arr[3]
+# puts sum
+# sum2 = arr[1] + arr[2] + arr[3] + arr[4]
+# puts sum2
+# puts "#{sum} #{sum2}"
+# max_sum = 0
+# min_sum = 0
 
-min_sum = 0
-i = 0
-x = 0
-while x < arr.length
-  unless x == i
-    min_sum += arr[x]
-  end
-  x += 1
-end
-puts "Minimum sum: #{min_sum}"
+# min_sum = 0
+# i = 0
+# x = 0
+# while x < arr.length
+#   unless x == i
+#     min_sum += arr[x]
+#   end
+#   x += 1
+# end
+# puts "Minimum sum: #{min_sum}"
 
-new_sum = 0
-i = 1
-x = 0
-while x < arr.length
-  unless x == i
-    new_sum += arr[x]
-  end
-  x += 1
-end
-puts "New sum: #{new_sum}"
+# new_sum = 0
+# i = 1
+# x = 0
+# while x < arr.length
+#   unless x == i
+#     new_sum += arr[x]
+#   end
+#   x += 1
+# end
+# puts "New sum: #{new_sum}"
 
-if new_sum > min_sum
-  max_sum = new_sum
-elsif new_sum < min_sum
-  max_sum = min_sum
-  min_sum = new_sum
-end
-puts "Minimum sum: #{min_sum}"
-puts "Maximum sum: #{max_sum}"
+# if new_sum > min_sum
+#   max_sum = new_sum
+# elsif new_sum < min_sum
+#   max_sum = min_sum
+#   min_sum = new_sum
+# end
+# puts "Minimum sum: #{min_sum}"
+# puts "Maximum sum: #{max_sum}"
 
-new_sum = 0
-i = 2
-x = 0
-while x < arr.length
-  unless x == i
-    new_sum += arr[x]
-  end
-  x += 1
-end
+# new_sum = 0
+# i = 2
+# x = 0
+# while x < arr.length
+#   unless x == i
+#     new_sum += arr[x]
+#   end
+#   x += 1
+# end
 
-if new_sum > max_sum
-  max_sum = new_sum
-elsif new_sum < min_sum
-  min_sum = new_sum
-end
-puts "Minimum sum: #{min_sum}"
-puts "Maximum sum: #{max_sum}"
+# if new_sum > max_sum
+#   max_sum = new_sum
+# elsif new_sum < min_sum
+#   min_sum = new_sum
+# end
+# puts "Minimum sum: #{min_sum}"
+# puts "Maximum sum: #{max_sum}"
+
+# i = 0
+# x = 0
+# sum = 0
+# while x < arr.length
+#   unless x == i
+#     sum += arr[x]
+#   end
+#   x += 1
+# end
+# min_sum = sum
+# max_sum = sum
+# puts "Min sum: #{min_sum}, Max sum: #{max_sum}"
+# i = 1
+# x = 0
+# sum = 0
+# while x < arr.length
+#   unless x == i
+#     sum += arr[x]
+#   end
+#   x += 1
+# end
+# puts "New sum: #{sum}"
+
+# if sum < min_sum
+#   min_sum = sum
+# elsif sum > max_sum
+#   max_sum = sum
+# end
+# puts "Min sum: #{min_sum}"
+# puts "Max sum: #{max_sum}"
 
 i = 0
 x = 0
@@ -104,31 +135,21 @@ while x < arr.length
 end
 min_sum = sum
 max_sum = sum
-puts "Min sum: #{min_sum}, Max sum: #{max_sum}"
 i = 1
-x = 0
-sum = 0
-while x < arr.length
-  unless x == i
-    sum += arr[x]
-  end
-  x += 1
-end
-puts "New sum: #{sum}"
-
-if sum < min_sum
-  min_sum = sum
-elsif sum > max_sum
-  max_sum = sum
-end
-puts "Min sum: #{min_sum}"
-puts "Max sum: #{max_sum}"
-
-i = 0
 while i < arr.length
   x = 0
   sum = 0
-  unless x == i
-    sum += arr[x]
+  while x < arr.length
+    unless x == i
+      sum += arr[x]
+    end
+    x += 1
   end
+  if sum < min_sum
+    min_sum = sum
+  elsif sum > max_sum
+    max_sum = sum
+  end
+  i += 1
 end
+puts "#{min_sum} #{max_sum}"
