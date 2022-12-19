@@ -43,14 +43,10 @@ arr3 = [[6, 6, 7, -10, 9, -3, 8, 9, -1],
 def diagonal_difference(arr)
   i = 0
   prim_sum = 0
+  sec_sum = 0
+  i2 = arr.length - 1
   while i < arr.length
     prim_sum += arr[i][i]
-    i += 1
-  end
-  i = 0
-  i2 = arr.length - 1
-  sec_sum = 0
-  while i < arr.length
     sec_sum += arr[i][i2]
     i += 1
     i2 -= 1
@@ -59,4 +55,4 @@ def diagonal_difference(arr)
   p absolute_difference
 end
 
-diagonal_difference(arr2)
+diagonal_difference(arr)

@@ -22,9 +22,9 @@ def plusMinus(arr)
       zero += 1
     end
   end
-  pos = sprintf("%.6f", (pos.to_f / arr.length.to_f))
-  neg = sprintf("%.6f", (neg.to_f / arr.length.to_f))
-  zero = sprintf("%.6f", (zero.to_f / arr.length.to_f))
+  pos = sprintf("%00.6f", (pos.to_f / arr.length.to_f))
+  neg = sprintf("%00.6f", (neg.to_f / arr.length.to_f))
+  zero = sprintf("%00.6f", (zero.to_f / arr.length.to_f))
   p pos.to_f
   p neg.to_f
   p zero.to_f

@@ -34,8 +34,6 @@
 
 # Write a loop using i to iterate over each integer in array and perform the previously written logic for comparing sums for min and max
 
-arr = [1, 2, 3, 4, 5]
-
 # sum = arr[0] + arr[1] + arr[2] + arr[3]
 # puts sum
 # sum2 = arr[1] + arr[2] + arr[3] + arr[4]
@@ -124,32 +122,46 @@ arr = [1, 2, 3, 4, 5]
 # puts "Min sum: #{min_sum}"
 # puts "Max sum: #{max_sum}"
 
+# arr = [1, 2, 3, 4, 5]
+arr = [769082435, 210437958, 673982045, 375809214, 380564127]
+# expected output: 1640793344 2199437821
+
+arr = arr.sort
 i = 0
-x = 0
-sum = 0
-while x < arr.length
-  unless x == i
-    sum += arr[x]
-  end
-  x += 1
-end
-min_sum = sum
-max_sum = sum
-i = 1
-while i < arr.length
-  x = 0
-  sum = 0
-  while x < arr.length
-    unless x == i
-      sum += arr[x]
-    end
-    x += 1
-  end
-  if sum < min_sum
-    min_sum = sum
-  elsif sum > max_sum
-    max_sum = sum
-  end
+i2 = arr.length - 1
+4.times do
+  min_sum += arr[i]
+  max_sum += arr[i2]
   i += 1
+  i2 -= 1
 end
 puts "#{min_sum} #{max_sum}"
+
+# x = 0
+# sum = 0
+# while x < arr.length
+#   unless x == 0
+#     sum += arr[x]
+#   end
+#   x += 1
+# end
+# min_sum = sum
+# max_sum = sum
+# i = 1
+# while i < arr.length
+#   x = 0
+#   sum = 0
+#   while x < arr.length
+#     unless x == i
+#       sum += arr[x]
+#     end
+#     x += 1
+#   end
+#   if sum < min_sum
+#     min_sum = sum
+#   elsif sum > max_sum
+#     max_sum = sum
+#   end
+#   i += 1
+# end
+# puts "#{min_sum} #{max_sum}"
