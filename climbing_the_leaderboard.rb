@@ -15,15 +15,48 @@ ranked = [100, 90, 90, 80, 75, 60]
 m = 5
 player = [50, 65, 77, 90, 102]
 
-player_rankings = []
-for i in player
-  ranked << i
-  ranked = ranked.uniq.sort.reverse
-  player_rankings << ranked.find_index(i) + 1
+# RECREATION OF SOLUTION ONLINE:
+ranked_length = ranked.length
+compressed_ranked_length = 0
+compressed_rank = []
+i = 0
+while i < ranked_length
+  j = i
+  compressed_rank.append(ranked[i])
+  compressed_ranked_length += 1
+  while j < ranked_length && ranked[i] == ranked[j]
+    j += 1
+  end
+  i = j
 end
-player_rankings = player_rankings.sort.reverse
-p player_rankings
 
+ranks = []
+rank = compressed_ranked_length
+for score in player
+  while rank > 0 && score >= compressed_rank[rank - 1]
+    rank -= 1
+  end
+  if rank == compressed_ranked_length
+    compressed_rank.append(score)
+  else
+    compressed_rank.insert(rank, score)
+  end
+  compressed_ranked_length += 1
+  ranks.append(rank + 1)
+end
+p ranks
+
+# FIRST SOLUTION:
+# player_rankings = []
+# for i in player
+#   ranked << i
+#   ranked = ranked.uniq.sort.reverse
+#   player_rankings << ranked.find_index(i) + 1
+# end
+# player_rankings = player_rankings.sort.reverse
+# p player_rankings
+
+# SECOND SOLUTION:
 # n = 6
 # ranked = [100, 90, 90, 80, 75, 60]
 # m = 5
