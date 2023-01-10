@@ -11,87 +11,36 @@
 # https://apidock.com/ruby/Array/find_index
 
 n = 6
-ranked = [100, 90, 90, 80, 75, 60]
+ranked = [100, 90, 80, 75, 60]
 m = 5
 player = [50, 65, 77, 90, 102]
 
-# RECREATION OF SOLUTION ONLINE:
-ranked_length = ranked.length
-compressed_ranked_length = 0
-compressed_rank = []
+ranked_short = []
 i = 0
-while i < ranked_length
+while i < ranked.length
   j = i
-  compressed_rank.append(ranked[i])
-  compressed_ranked_length += 1
-  while j < ranked_length && ranked[i] == ranked[j]
+  while ranked[i] == ranked[j]
     j += 1
   end
+  ranked_short << ranked[j - 1]
   i = j
 end
 
-ranks = []
-rank = compressed_ranked_length
-for score in player
-  while rank > 0 && score >= compressed_rank[rank - 1]
+ranked_short_length = ranked_short.length
+i = 0
+player_rankings = []
+while i < ranked_short_length
+  rank = ranked_short_length
+  score = player[i]
+  j = ranked_short_length - 1
+  if score == nil
+    break
+  end
+  while ranked_short[j] != nil && rank > 0 && score >= ranked_short[j]
     rank -= 1
+    j -= 1
   end
-  if rank == compressed_ranked_length
-    compressed_rank.append(score)
-  else
-    compressed_rank.insert(rank, score)
-  end
-  compressed_ranked_length += 1
-  ranks.append(rank + 1)
+  player_rankings << rank + 1
+  i += 1
+  p player_rankings
 end
-p ranks
-
-# FIRST SOLUTION:
-# player_rankings = []
-# for i in player
-#   ranked << i
-#   ranked = ranked.uniq.sort.reverse
-#   player_rankings << ranked.find_index(i) + 1
-# end
-# player_rankings = player_rankings.sort.reverse
-# p player_rankings
-
-# SECOND SOLUTION:
-# n = 6
-# ranked = [100, 90, 90, 80, 75, 60]
-# m = 5
-# player = [50, 65, 77, 90, 102]
-
-# p ranked
-# ranked << player[0]
-# p ranked
-# ranked = ranked.uniq.sort.reverse
-# p ranked
-# puts ranked.find_index(player[0]) + 1
-# p "   "
-# ranked.delete(player[0])
-# p ranked
-# ranked << player[1]
-# p ranked
-# ranked = ranked.uniq.sort.reverse
-# p ranked
-# puts ranked.find_index(player[1]) + 1
-# p "   "
-# ranked.delete(player[1])
-# p ranked
-# ranked << player[2]
-# p ranked
-# ranked = ranked.uniq.sort.reverse
-# p ranked
-# puts ranked.find_index(player[2]) + 1
-
-# i = 0
-# while i < ranked.length
-#   if i != 0
-#     ranked.delete(player[i - 1])
-#   end
-#   ranked << player[i]
-#   ranked = ranked.uniq.sort.reverse
-#   puts ranked.find_index(player[i]) + 1
-#   i += 1
-# end
