@@ -11,32 +11,32 @@
 # https://apidock.com/ruby/Array/find_index
 
 n = 6
-ranked = [100, 90, 80, 75, 60]
+ranked = [100, 90, 90, 80, 75, 60]
 m = 5
 player = [50, 65, 77, 90, 102]
 
 ranked_short = []
 i = 0
-while i < ranked.length
-  j = i
-  while ranked[i] == ranked[j]
-    j += 1
+while i < ranked.length - 1
+  if ranked[i] != ranked[i + 1]
+    ranked_short << ranked[i]
   end
-  ranked_short << ranked[j - 1]
-  i = j
+  i += 1
 end
+ranked_short << ranked[-1]
+p ranked_short
+
+ranked_short = [100, 90, 80, 75, 60]
+player = [50, 65, 77, 90, 102]
 
 ranked_short_length = ranked_short.length
 i = 0
 player_rankings = []
-while i < ranked_short_length
+while i < ranked_short_length - 1
   rank = ranked_short_length
   score = player[i]
   j = ranked_short_length - 1
-  if score == nil
-    break
-  end
-  while ranked_short[j] != nil && rank > 0 && score >= ranked_short[j]
+  while rank >= 0 && score >= ranked_short[j]
     rank -= 1
     j -= 1
   end
