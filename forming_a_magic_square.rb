@@ -1,11 +1,27 @@
+# Check for duplicates in arrays to figure indeces of duplicates
+# # compare first array to itself, then to the second and third arrays
+# # compare second array to third array
+
+# Check for numbers missing in 1..9
+# # *method pending*
+
+# # MAKE A HASH with keys 1 through 9 and add to the value for each instance of the integer in the 2D array
+
 # # FOR CALCULATING COST:
 # Cost is the absolute value of the difference of all numbers and what they are changed with.
 # Subtract new number from old humber, then repeat for all exchanges
 # add all differences together and find the absolute value of that number to calculate cost of changes.
 
 # TEST CASE ONE
-# s = [[4, 9, 2], [3, 5, 7], [8, 1, 5]]
-# s = [[4, 9, 2], [3, 5, 7], [8, 1, 6]]
+# s = [[4, 9, 2],
+#      [3, 5, 7],
+#      [8, 1, 5]]
+
+# s = [[4, 9, 2],
+#      [3, 5, 7],
+#      [8, 1, 6]]
+
+output = 1
 
 # TEST CASE TWO
 # s = [[4, 8, 2], [4, 5, 7], [6, 1, 6]]
@@ -37,7 +53,6 @@ def array_row_sums(arr)
   puts "Row Sums"
   i = 0
   while i < arr.length
-    # p arr[i]
     sum = 0
     j = 0
     while j < arr.length
