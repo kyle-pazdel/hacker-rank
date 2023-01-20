@@ -17,6 +17,7 @@ s = [[4, 8, 2],
      [6, 2, 6]]
 
 def total_array_sum(arr)
+  puts "Total Sum"
   sum = 0
   i = 0
   while i < arr.length
@@ -33,6 +34,7 @@ end
 total_array_sum(s)
 
 def array_row_sums(arr)
+  puts "Row Sums"
   i = 0
   while i < arr.length
     # p arr[i]
@@ -50,6 +52,7 @@ end
 array_row_sums(s)
 
 def array_column_sum(arr)
+  puts "Column Sums"
   i = 0
   while i < arr.length
     sum = 0
@@ -64,3 +67,21 @@ def array_column_sum(arr)
 end
 
 array_column_sum(s)
+
+def array_diagonal_sum(arr)
+  puts "Diagonal Sums"
+  i = 0
+  j = 2
+  sum1 = 0
+  sum2 = 0
+  while i < arr.length
+    sum1 += arr[i][i]
+    sum2 += arr[i][j]
+    i += 1
+    j -= 1
+  end
+  p sum1
+  p sum2
+end
+
+array_diagonal_sum(s)
