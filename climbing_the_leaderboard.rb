@@ -8,13 +8,11 @@
 
 # arr.sort_by{|a,b| b <=> a}
 
-# https://apidock.com/ruby/Array/find_index
-
 ranked = [100, 90, 90, 80, 75, 60]
 player = [50, 65, 77, 90, 102]
 
-# player = [5, 25, 50, 120]
 # ranked = [100, 100, 50, 40, 40, 20, 10]
+# player = [5, 25, 50, 120]
 
 ranked_short = []
 i = 0
